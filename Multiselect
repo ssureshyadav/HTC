@@ -1,0 +1,59 @@
+<template>
+    <!--multi select start-->
+<div class="lookup-container">
+    <div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control" onfocusout={focusout}>
+                <div class="slds-combobox_container">
+                    <div id="box" class={boxClass} aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                            role="none">
+                            <div class="slds-p-top_none">
+                                <input class="slds-combobox__input slds-input hasButton"
+                                type="text" role="combobox" value={selectedValuesList} onclick={handleClick} placeholder={placeholderval} readonly>
+                            <button class="slds-button slds-button--neutral autocompleteButton uiButton--default uiButton--neutral uiButton uiInput uiInputTextForAutocomplete uiInput--default uiInput--input uiInput uiAutocomplete uiInput--default uiInput--lookup" type="button" tabindex="-1" onclick={handleClick} data-aura-class="uiButton--default uiButton--neutral uiButton uiInput uiInputTextForAutocomplete uiInput--default uiInput--input uiInput uiAutocomplete uiInput--default uiInput--lookup">
+                                    <lightning-icon icon-name="utility:down" size="xx-small" alternative-text="down" title="down">
+                                    </lightning-icon>
+                            </button>   
+                        </div>
+                        </div>
+                        <template if:true={templateon}>
+                            <center>
+                            <div class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="listbox" style="border-radius: 0px" onmouseleave={inblur} onmouseover={templatefocus}> 
+                                <!-- id="listbox-id-1"
+                                class="slds-listbox slds-dropdown_length-with-icon-7 slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds-dropdown_left"
+                                role="listbox" -->
+                                <!-- onmouseleave={inblur} -->
+                                <ul class="slds-listbox slds-listbox_vertical" role="presentation" style="width:100%;">
+                                    <!-- <li role="presentation">
+                                        <input class="slds-input" type="text" placeholder="Search values..." onkeyup={Searchtheoptions} style="border: none;">  
+                                    </li> -->
+                                    <template if:false={HideSelectAllSection}>
+                                    <li role="presentation">
+                                        <lightning-button style="margin-left: 0px;" variant="base" label="Select All" title="Select All" icon-name="utility:multi_select_checkbox" class="slds-m-left_x-small" onclick={SelectAllmethod}></lightning-button>
+                                        <lightning-button variant="base" label="None" title="None" icon-name="utility:dash" class="slds-m-left_x-small" onclick={NoneMethod}></lightning-button>
+                                    </li>
+                                    </template>
+                                    <div id="listbox-id-2"
+                                    class="slds-listbox slds-dropdown_length-with-icon-7 slds-listbox_vertical slds-dropdown slds-dropdown_fluid"
+                                    role="listbox" style="border-radius: 0px; border-top:none">
+                                    <template for:each={filteredlst} for:item="item" for:index="indxed">
+                                        <li key={item.value} data-id={item.value} role="presentation">
+                                            <span class="slds-lookup__item-action slds-lookup__item-action--label" role="option">
+                                                <lightning-input name="MultiSelect" data-id={item.ind} label={item.label} type="checkbox" checked={item.checked} value={item.value} onchange={handleselecteddata}></lightning-input>
+                                            </span>
+                                        </li>
+                                    </template>
+                                </div>
+                                </ul>
+                            </div>
+                        </center>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ <!--multi select end-->
+</template>
