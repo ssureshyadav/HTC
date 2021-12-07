@@ -1,0 +1,16 @@
+for(var key in locations){
+    var locArray = locations[key];
+    var cmpLocationArry = [];
+    locArray.forEach(function (element) {
+        cmpLocationArry.push({
+            label:element.substring(19),
+            value:element});         
+    });  
+    if (key == 'accountLocations'){
+        component.set("v.accountLocations",cmpLocationArry);
+    }else if (key == 'opptLocations'){
+        component.set("v.opptLocations",cmpLocationArry);
+    }else if (key == 'accountPrimaryLocations'){
+        component.set("v.accountPrimaryLocations",cmpLocationArry);
+    }
+}
